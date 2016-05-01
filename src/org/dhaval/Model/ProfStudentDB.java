@@ -5,17 +5,18 @@ import org.dhaval.Exceptions.SingletonObjectException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Dhaval on 4/30/2016.
  */
 public class ProfStudentDB {
 
-    public Map<String, ArrayList<ClassEnum>> getClassProfMap() {
+    public Map<String, Set<ClassEnum>> getClassProfMap() {
         return classProfMap;
     }
 
-    public void setClassProfMap(Map<String, ArrayList<ClassEnum>> classProfMap) {
+    public void setClassProfMap(Map<String, Set<ClassEnum>> classProfMap) {
         this.classProfMap = classProfMap;
     }
 
@@ -27,13 +28,13 @@ public class ProfStudentDB {
         this.studentCourseMap = studentCourseMap;
     }
 
-    private Map<String,ArrayList<ClassEnum>> classProfMap = new HashMap<>();
+    private Map<String,Set<ClassEnum>> classProfMap = new HashMap<>();
     private Map<Integer, ArrayList<ClassEnum>> studentCourseMap = new HashMap<>();
 
     private static int countObjects = 0;
     private ProfStudentDB() {
     }
-    public ProfStudentDB getSingletonObject() throws SingletonObjectException{
+    public static ProfStudentDB getSingletonObject() throws SingletonObjectException{
 
         if(countObjects == 0){
             countObjects++;
